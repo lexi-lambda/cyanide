@@ -1,0 +1,25 @@
+.flex {
+  @include flex;
+}
+
+@for $i from 1 through 12 {
+  .flex-weight-#{$i} {
+    @include flex($grow: $i);
+  }
+}
+
+.flexible-container {
+  display: flex;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+}
+
+.full-size {
+  @include full-size;
+}

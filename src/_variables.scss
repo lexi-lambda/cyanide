@@ -1,1 +1,6 @@
+/// Controls whether or not helper classes are generated. If set to `false`,
+/// only the mixins will be available. In order for your setting to take effect,
+/// ensure the variable is set *before* importing Cyanide.
+///
+/// @type Boolean
 $cyanide-generate-classes: true !default;

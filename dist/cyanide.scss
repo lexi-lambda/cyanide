@@ -1,29 +1,33 @@
 @import 'variables';
-@import 'functions';
 
-%flexible-container {
-  display: flex;
+@if $cyanide-generate-classes {
+  @import 'classes';
 }
 
-%flex {
-  flex: 1;
+/// Provides a shorthand for creating flexible elements. It sets the `flex`
+/// property to the `$grow` parameter, and it also sets `min-height` and
+/// `min-width` to zero, which is usually what you want.
+///
+/// The CSS flexbox module sets flexible elements’ minimum sizes to `auto`,
+/// which can have unintended side effects when elements shrink. If you do not
+/// want this behavior, just use `flex` directly.
+///
+/// @param {number} $grow [1] - value for `flex-grow`
+@mixin flex($grow: 1) {
+  flex: $grow;
   min-height: 0;
   min-width: 0;
 }
 
-%full-size {
-  height: 100%;
-  width: 100%;
-}
-
-@mixin flexible-container($direction: horizontal, $justify: flex-start) {
-  @extend %flexible-container;
-  justify-content: $justify;
-  @if $direction == vertical {
-    flex-direction: column;
-  }
-}
-
+/// Provides a way to add weighted padding to the beginning and end of a flexbox
+/// container without polluting the DOM. It uses pseudoelements to create the
+/// padding. The values for `$before` and `$after` will be used as the weights
+/// for `flex-grow` for each pseudoelement.
+///
+/// @param {number} $before [0]
+/// @param {number} $after [0]
+///
+/// @see {mixin} flexible-container
 @mixin flex-pad($before: 0, $after: 0) {
   &::before {
     content: '';
@@ -36,27 +40,24 @@
   }
 }
 
-@if $cyanide-generate-classes {
-  @include placeholder-class(flex);
-  @include placeholder-class(full-size);
-
-  .flexible-container {
-    @extend %flexible-container;
-
-    &.vertical {
-      flex-direction: column;
-    }
-
-    &.justify-center {
-      justify-content: center;
-    }
+/// Sets `display: flex` on an element, turning it into a flexbox container.
+///
+/// @param {'horizontal' | 'vertical'} $direction [horizontal] -
+///   controls the axis upon which the container lays out its children
+/// @param {string} $justify [flex-start] - value for `justify-content`
+@mixin flexible-container($direction: horizontal, $justify: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  @if $direction == vertical {
+    flex-direction: column;
   }
+}
 
-  @for $i from 1 through 12 {
-    .flex-weight-#{$i} {
-      flex: $i;
-      min-height: 0;
-      min-width: 0;
-    }
-  }
+/// A helper mixin for setting `width` and `height` to `100%`. This should be
+/// used sparingly—most of the time, the same effect can be accomplished via
+/// flexbox, and explicitly setting the size of an element can mess with how
+/// flexbox lays out elements.
+@mixin full-size {
+  height: 100%;
+  width: 100%;
 }

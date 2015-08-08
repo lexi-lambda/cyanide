@@ -1,6 +1,6 @@
 {
   "name": "cyanide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Feather-light flexbox layout framework",
   "main": [
     "./dist/sass/cyanide.scss"

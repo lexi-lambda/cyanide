@@ -1,6 +1,6 @@
 {
   "name": "cyanide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Feather-light flexbox layout framework",
   "scripts": {
     "build": "gulp",
@@ -9,6 +9,7 @@
   "devDependencies": {
     "coffee-script": "^1.9.3",
     "gulp": "^3.9.0",
-    "gulp-scss-lint": "^0.2.2"
+    "gulp-scss-lint": "^0.2.2",
+    "sassdoc": "^2.1.15"
   }
 }
