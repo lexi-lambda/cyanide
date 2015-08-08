@@ -1,32 +1,32 @@
-# Cyanide
+# Cyanotype
 
-**Cyanide** is a feather-light flexbox layout framework for Sass.
+**Cyanotype** is a feather-light flexbox layout framework for Sass.
 
 ## Installation
 
-1. Install Cyanide with Bower.
+1. Install Cyanotype with Bower.
 
   ```bash
-  $ bower install cyanide
+  $ bower install cyanotype
   ```
 
-2. Import Cyanide in your stylesheet.
+2. Import Cyanotype in your stylesheet.
 
   ```scss
-  @import 'cyanide';
+  @import 'cyanotype';
   ```
 
 ## Usage
 
-See [the documentation][docs] for information on the mixins provided by Cynaide.
+See [the documentation][docs] for information on the mixins provided by Cyanotype.
 
 ## Configuration
 
-By default, Cyanide generates helper classes to mitigate the need for one-off classes. However, since Cyanide is designed to be used primarily from within your stylesheet, these classes are optional. If you want to completely commit to semantic markup and disable them entirely, simply set `$cyanide-generate-classes` to `false` *before* importing Cyanide.
+By default, Cyanotype generates helper classes to mitigate the need for one-off classes. However, since Cyanotype is designed to be used primarily from within your stylesheet, these classes are optional. If you want to completely commit to semantic markup and disable them entirely, simply set `$cyanotype-generate-classes` to `false` *before* importing Cyanotype.
 
 ```scss
-$cyanide-generate-classes: false;
-@import 'cyanide';
+$cyanotype-generate-classes: false;
+@import 'cyanotype';
 ```
 
-[docs]: http://lexi-lambda.github.io/cyanide/docs/
+[docs]: http://lexi-lambda.github.io/cyanotype/docs/
