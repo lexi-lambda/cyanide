@@ -1,0 +1,5 @@
+@mixin placeholder-class($placeholder-name) {
+  .#{$placeholder-name} {
+    @extend %#{$placeholder-name};
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cyanide",
+  "version": "0.0.1",
+  "description": "Feather-light flexbox layout framework",
+  "main": [
+    "./dist/sass/cyanide.scss"
+  ],
+  "authors": [
+    "Alexis King <lexi.lambda@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

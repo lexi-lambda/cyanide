@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'functions';
+
+%flexible-container {
+  display: flex;
+}
+
+%flex {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+%full-size {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin flexible-container($direction: horizontal, $justify: flex-start) {
+  @extend %flexible-container;
+  justify-content: $justify;
+  @if $direction == vertical {
+    flex-direction: column;
+  }
+}
+
+@mixin flex-pad($before: 0, $after: 0) {
+  &::before {
+    content: '';
+    flex: $before;
+  }
+
+  &::after {
+    content: '';
+    flex: $after;
+  }
+}
+
+@if $cyanide-generate-classes {
+  @include placeholder-class(flex);
+  @include placeholder-class(full-size);
+
+  .flexible-container {
+    @extend %flexible-container;
+
+    &.vertical {
+      flex-direction: column;
+    }
+
+    &.justify-center {
+      justify-content: center;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .flex-weight-#{$i} {
+      flex: $i;
+      min-height: 0;
+      min-width: 0;
+    }
+  }
+}
